@@ -4,8 +4,8 @@ ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:'
 
 load File.dirname(__FILE__) + '/schema.rb'
 
-# require_relative '../../../lib/invalid_model_ignored_silently'
-# ActiveRecord::Associations::CollectionProxy.send :prepend, InvalidModelIgnoredSilently
+require_relative '../../../lib/invalid_model_ignored_silently'
+ActiveRecord::Associations::CollectionProxy.send :prepend, InvalidModelIgnoredSilently
 
 class Skill < ActiveRecord::Base
   has_many :users, through: :skills_users

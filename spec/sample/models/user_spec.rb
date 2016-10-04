@@ -10,18 +10,14 @@ describe User do
 
   subject { user.skills << skill }
 
-  it do
-    expect { subject }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: User has already been taken')
-  end
+  it { expect { subject }.to_not raise_error }
 
-  # it { expect { subject }.to_not raise_error }
-  #
-  # it do
-  #   expect {
-  #     subject
-  #   }.to_not change {
-  #     user.skills.size
-  #   }
-  # end
+  it do
+    expect {
+      subject
+    }.to_not change {
+      user.skills.size
+    }
+  end
 
 end
