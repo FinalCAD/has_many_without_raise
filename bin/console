@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+require_relative '../lib/invalid_model_ignored_silently'
+
+require 'irb'
+IRB.start
